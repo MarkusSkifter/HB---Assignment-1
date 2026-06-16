@@ -1,0 +1,70 @@
+\section{Baseline Model}
+
+\paragraph{Preferences}
+
+Following \textcite{Keane2016}, households derive utility from consumption and disutility from labour supply. Period utility is given by
+
+\[
+U_t =
+\frac{c_t^{1+\eta}}{1+\eta}
+-
+\beta(n_t)\frac{h_t^{1+\gamma}}{1+\gamma},
+\]
+
+where $c_t$ denotes consumption and $h_t$ hours worked. $\eta$ and $\gamma$ determine the curvature of utility from consumption and the disutility of labour. $\beta(n_t)$ scales the disutility of labour depending if children are present.
+
+\paragraph{Dynamic Optimization Problem}
+
+Households choose consumption and labour supply to maximize expected lifetime utility. The recursive problem can be written as
+
+\[
+V_t(n_t,a_t,k_t)
+=
+\max_{c_t,h_t}
+\left\{
+\frac{c_t^{1+\eta}}{1+\eta}
+-
+\beta(n_t)\frac{h_t^{1+\gamma}}{1+\gamma}
++
+\rho \mathbb{E}_t
+\left[
+V_{t+1}(n_{t+1},a_{t+1},k_{t+1})
+\right]
+\right\},
+\]
+
+where $a_t$ denotes assets, $k_t$ human capital, and $\rho$ the discount factor.
+
+\paragraph{The internals of the Bellman equation}
+
+Fertility evolves according to a stochastic process
+
+\[
+n_{t+1} =
+\begin{cases}
+n_t + 1 & \text{with probability } p(n_t) \\
+n_t & \text{with probability } 1 - p(n_t)
+\end{cases}
+\]
+
+Assets evolve according to the household's budget constraint
+
+\[
+a_{t+1} = (1+r)a_t + (1-\tau) w_t h_t - c_t,
+\]
+
+where $\tau$ is the labour income tax rate. Human capital accumulates through labour supply
+
+\[
+k_{t+1} = k_t + h_t.
+\]
+
+We let the disutilty of children be given by the formulation
+
+\[\beta(n_t)=\beta_0+\beta_1\cdot n_t\]
+
+Since we will solve by backwards induction, we last period maximization problem will be the maximisation of the original period utility given in \cite{Keane2016}
+
+\[V_{T}(n_T,a_T,k_T)=\max_{h_{T}}\frac{c_{T}^{1+\eta}}{1+\eta}-\beta(n_T)\frac{h_{T}^{1+\gamma}}{1+\gamma} \quad \text{s.t} \quad 
+c_T = a_{T}+(1-\tau)w_{T}h_{T}.
+\]
