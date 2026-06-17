@@ -11,11 +11,11 @@ U_t =
 \beta(n_t)\frac{h_t^{1+\gamma}}{1+\gamma},
 \]
 
-where $c_t$ denotes consumption and $h_t$ hours worked. $\eta$ and $\gamma$ determine the curvature of utility from consumption and the disutility of labour. $\beta(n_t)$ scales the disutility of labour depending on whether children are present.
+where $c_t$ denotes consumption and $h_t$ hours worked. $\eta$ and $\gamma$ determine the curvature of utility from consumption and the disutility of labour. $\beta(n_t)$ scales the disutility of labour depending if children are present.
 
-\paragraph{Recursive formulation}
+\paragraph{Dynamic Optimization Problem}
 
-Households choose consumption and labour supply to maximize expected lifetime utility. The recursive problem can be written as 
+Households choose consumption and labour supply to maximize expected lifetime utility. The recursive problem can be written as
 
 \[
 V_t(n_t,a_t,k_t)
@@ -26,7 +26,7 @@ V_t(n_t,a_t,k_t)
 -
 \beta(n_t)\frac{h_t^{1+\gamma}}{1+\gamma}
 +
-\rho \, \mathbb{E}_t
+\rho \mathbb{E}_t
 \left[
 V_{t+1}(n_{t+1},a_{t+1},k_{t+1})
 \right]
@@ -35,41 +35,36 @@ V_{t+1}(n_{t+1},a_{t+1},k_{t+1})
 
 where $a_t$ denotes assets, $k_t$ human capital, and $\rho$ the discount factor.
 
-\paragraph{State transitions}
+\paragraph{The internals of the Bellman equation}
 
-The three states evolve as follows. Fertility follows a stochastic process,
+Fertility evolves according to a stochastic process
 
 \[
 n_{t+1} =
 \begin{cases}
-n_t + 1 & \text{with probability } p(n_t), \\
-n_t & \text{with probability } 1 - p(n_t),
-\end{cases}
-\qquad
-p(n_t)=
-\begin{cases}
-p_n & \text{if } n_t = 0, \\
-0 & \text{if } n_t = 1,
+n_t + 1 & \text{with probability } p(n_t) \\
+n_t & \text{with probability } 1 - p(n_t)
 \end{cases}
 \]
-so at most one child can arrive. Assets evolve according to the budget constraint
+
+Assets evolve according to the household's budget constraint
 
 \[
-a_{t+1} = (1+r)\left(a_t + (1-\tau) w_t h_t - c_t\right),
+a_{t+1} = (1+r)a_t + (1-\tau) w_t h_t - c_t,
 \]
 
-where $\tau$ is the labour income tax rate and $w_t = w(1+\alpha k_t)$ is the (gross) wage, so that the after-tax wage is $(1-\tau)w_t$. Human capital accumulates through labour supply,
+where $\tau$ is the labour income tax rate. Human capital accumulates through labour supply
 
 \[
-k_{t+1} = k_t + h_t,
+k_{t+1} = k_t + h_t.
 \]
 
-and the disutility of labour depends on children through
+We let the disutilty of children be given by the formulation
 
-\[\beta(n_t)=\beta_0+\beta_1 n_t.\]
+\[\beta(n_t)=\beta_0+\beta_1\cdot n_t\]
 
-We solve by backward induction, assuming no bequest motive. With no continuation value, the last-period problem reduces to a static choice of hours,
+Since we will solve by backwards induction, we last period maximization problem will be the maximisation of the original period utility given in \cite{Keane2016}
 
-\[V_{T}(n_T,a_T,k_T)=\max_{h_{T}}\frac{c_{T}^{1+\eta}}{1+\eta}-\beta(n_T)\frac{h_{T}^{1+\gamma}}{1+\gamma} \quad \text{s.t.} \quad
+\[V_{T}(n_T,a_T,k_T)=\max_{h_{T}}\frac{c_{T}^{1+\eta}}{1+\eta}-\beta(n_T)\frac{h_{T}^{1+\gamma}}{1+\gamma} \quad \text{s.t} \quad 
 c_T = a_{T}+(1-\tau)w_{T}h_{T}.
 \]

@@ -1,6 +1,6 @@
 \section{Question 1}
 
-\subsection{What value of $\beta_1$ produces an event-study graph of working hours with something close to a drop in hours of 10\% around the time of birth?}
+\subsection{What value of $\beta_1$ produces an event-study graph of working hours with something close to a drop in hours of 10 pct around the time of birth?}
 
 \bigskip
 
@@ -16,18 +16,18 @@ so when a child arrives ($n_t=1$), the marginal disutility of supplying labour i
 
 \paragraph{Calibration target.}
 
-\textcite{Kleven2019} show that women's labour supply drops roughly $10\%$ around the first birth.
+\cite{Kleven2019} showed that women's labour supply drops roughly $10\%$ around the first birth.
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.5\linewidth]{Billeder/Kleven drop.png}
-    \caption{The drop in hours worked, relative to $t-1$ from \cite{Kleven2019}}
+    \caption{The drop in hours worked, relatve to $t-1$ from \cite{Kleven2019}}
     \label{fig:placeholder}
 \end{figure}
 
 \paragraph{Calibration procedure.}
 
-We calibrate $\beta_1$ by simulating the model for a candidate value and iteratively adjusting it until the simulated drop in hours matches the $-10\%$ target. For each individual the birth period is identified and an event-study of hours worked around childbirth is constructed.
+The parameter is calibrated by a method where we simulate the model from an initial $\beta_1$ value, and adjust it until a calibrated value has been reached. For each individual the birth period is identified and an event-study of hours worked around childbirth is constructed.
 
 The calibration problem is
 
@@ -62,11 +62,13 @@ The algorithm converges to
 \beta_1^* = 0.0537,
 \]
 
-which produces a simulated decline in hours of approximately $\Delta h \approx -0.10$ around childbirth. The figure title shows the full numerical precision ($\beta_1^* = 0.053672$), which rounds to the reported $0.0537$.
+which produces a simulated decline in hours of approximately $\Delta h \approx -0.10 $
+
+around childbirth.
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.5\linewidth]{Billeder/Opgave 1.png}
-    \caption{Drop in hours worked from the solved model using the optimised $\beta_1^* = 0.0537$.}
-    \label{fig:q1_calibrated}
+    \caption{Drop in Hours worked from the solves model using optimized $\beta_1$ }
+    \label{fig:placeholder}
 \end{figure}

@@ -6,33 +6,31 @@
 
 \paragraph{Spouse presence.}
 
-We extend the baseline model with a stochastic, income-generating spouse. When present, the spouse contributes income $y_t = 0.1 + 0.01t$ (as in Question~2); when absent, the household receives no spouse income. Presence is captured by a new state $s_t \in \{0,1\}$,
+To extend the baseline model, we introduce a stochastic spouse presence. We let the state space be $s_t \in \{0,1\}$, which denotes whether a spouse is present, or not. 
 
 \[
 s_t =
 \begin{cases}
-1 & \text{if a spouse is present,} \\
-0 & \text{otherwise,}
+1 & \text{if a spouse is present} \\
+0 & \text{otherwise.}
 \end{cases}
 \]
 
-which follows an i.i.d.\ process, written in the same form as the fertility transition,
+Spouse presence therefore follows a stochastic process:
 
 \[
-s_{t+1} =
-\begin{cases}
-1 & \text{with probability } p_s = 0.8, \\
-0 & \text{with probability } 1-p_s = 0.2.
-\end{cases}
+\Pr(s_{t+1}=1)=p_s=0.8, 
+\qquad 
+\Pr(s_{t+1}=0)=1-p_s=0.2.
 \]
 
-The household's state vector therefore expands to
+We therefore have to extend the household's state vector relative to the baseline model. The new state space becomes
 
 \[
 x_t = (s_t,n_t,a_t,k_t),
 \]
 
-with $s_t$ spouse presence, $n_t$ children, $a_t$ assets, and $k_t$ human capital.
+where $s_t$ captures spouse presence, $n_t$ the number of children, $a_t$ assets, and $k_t$ human capital.
 
 \paragraph{Bellman equation and budget constraint.}
 
@@ -58,7 +56,7 @@ The budget constraint is also modified because the household receives spouse inc
 The period budget constraint becomes
 
 \[
-a_{t+1} = (1+r)\left(a_t + (1-\tau)(w_t h_t+s_ty_t)-c_t\right).
+a_{t+1} = (1+r)a_t + (1-\tau_t)(w_t h_t+s_ty_t)-c_t.
 \]
 
 Thus, spouse income increases household resources only in periods when a spouse is present.
@@ -81,31 +79,20 @@ If a child is already present ($n_t\ge1$), fertility remains unchanged. When $s_
 \]
 
 Thus, stochastic spouse presence reduces the number of periods in which childbirth is feasible compared to the baseline model.
-
 \paragraph{Simulation results and economic interpretation.}
 
-Table \ref{tab:compare_baseline_spouse5} reports summary statistics from the pure baseline ($p_s=1$, $y_t=0$) and the stochastic, income-generating spouse model ($p_s=0.8$, $y_t=0.1+0.01t$). The realised share of periods with a spouse present in the alternative model is $0.824$, close to the target $p_s=0.8$.
+Figure \ref{fig:stoch_spouse_profiles} compares life-cycle profiles in the stochastic spouse model ($p_s=0.8$) and the baseline model ($p_s=1$).
 
-\begin{table}[H]
-\centering
-\begin{tabular}{lcc}
-\hline
-Metric & Baseline ($p_s=1$) & Stochastic spouse ($p_s=0.8$) \\
-\hline
-Average hours worked & 1.5864 & 1.5639 \\
-Average consumption  & 2.4146 & 2.4719 \\
-Children at end      & 0.6080 & 0.5270 \\
-Final wealth         & -0.9113 & -0.9368 \\
-\hline
-\end{tabular}
-\caption{Baseline vs.\ stochastic, income-generating spouse ($p_s=0.8$). Share of periods with a spouse present in the alternative model: $0.824$.}
-\label{tab:compare_baseline_spouse5}
-\end{table}
+Three mechanisms explain the differences. First, spouse income becomes stochastic, creating income risk. Households respond with slightly higher labour supply as a precaution against periods without spouse income. 
 
-Figure \ref{fig:stoch_spouse_profiles} compares the life-cycle profiles. Two forces shape the comparison. When the spouse is present, the extra income relaxes the budget constraint, which through an income effect raises consumption and pulls down own hours. Because that income is now uncertain, households also face income risk and save somewhat more for precaution, which works in the opposite direction on hours. In the simulation the income effect modestly dominates: average hours fall from $1.5864$ to $1.5639$, while consumption rises from $2.4146$ to $2.4719$. Fertility is lower --- children at the end of life fall from $0.6080$ to $0.5270$ --- because births are only possible in the fraction of periods in which a spouse is present, and final wealth is marginally lower ($-0.9113$ to $-0.9368$).
+Second, when the spouse is present, additional household income raises average consumption relative to the baseline.
+
+Third, fertility declines because births are only possible when a spouse is present. Since spouse presence is stochastic, the number of periods in which childbirth can occur is reduced.
+
+Overall, the model introduces uncertainty in household income and fertility opportunities, leading to slightly higher labour supply, somewhat higher consumption when spouse income is realized, and lower average fertility.
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.5\textwidth]{Billeder/Lifecycle profiles_Q5_Ass1.png}
+\includegraphics[width=0.5\textwidth]{Billeder/Opgave 5.png}
 \caption{Life-cycle profiles: baseline ($p_s=1$) versus stochastic spouse presence ($p_s=0.8$).}
 \label{fig:stoch_spouse_profiles}
 \end{figure}
