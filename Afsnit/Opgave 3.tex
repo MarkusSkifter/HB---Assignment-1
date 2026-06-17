@@ -61,43 +61,6 @@ so the difference is $\Delta \varepsilon_M = +0.0152$. The underlying numbers ar
 \]
 The elasticity is obtained by the following wage-perturbation routine:
 
-\begin{lstlisting}[language=Python,basicstyle=\ttfamily\footnotesize,breaklines=true,columns=fullflexible,showstringspaces=false]
-# ============================================================
-# Marshall (uncompensated) wage elasticity of labour supply
-# ------------------------------------------------------------
-# Method: perturb the wage rate by +1% (w -> 1.01*w, so that the
-# per-period wage becomes 1.01*w*(1+alpha*k)), re-solve and
-# re-simulate, then take the % change in average hours per % change
-# in the wage:
-#     eps_M = (mean_h(1.01*w) - mean_h(w)) / mean_h(w) / 0.01
-# This is the structural response of labour supply to a PERMANENT
-# wage change (income + substitution effect), as opposed to a
-# cross-sectional correlation between hours and human-capital-driven
-# wages (which only reflects the downward-sloping life-cycle profile).
-# par.w_vec is rebuilt from par.w in allocate(), so changing par.w
-# shifts the wage in every period.
-# ============================================================
-
-dw = 0.01  # 1% permanent wage increase
-
-def marshall_elasticity(theta, beta_1, dw=0.01):
-    # baseline wage
-    m0 = DynLaborFertModelClass(par={'theta': theta, 'beta_1': beta_1})
-    m0.allocate(); m0.solve(); m0.simulate()
-    h0 = np.mean(m0.sim.h)
-
-    # +1% permanent wage increase
-    m1 = DynLaborFertModelClass(par={'theta': theta, 'beta_1': beta_1,
-                                     'w': m0.par.w * (1 + dw)})
-    m1.allocate(); m1.solve(); m1.simulate()
-    h1 = np.mean(m1.sim.h)
-
-    eps = ((h1 - h0) / h0) / dw
-    return eps, h0, h1
-
-eps_baseline,  h0_b, h1_b = marshall_elasticity(0.00, beta1_star, dw)
-eps_childcare, h0_c, h1_c = marshall_elasticity(0.05, beta1_star, dw)
-\end{lstlisting}
 
 \paragraph{Income vs. substitution effects (qualitative).}
 Following the lecture, the period-$t$ Marshall elasticity can be written as
