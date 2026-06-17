@@ -12,12 +12,12 @@ Relative to the baseline model, we introduce a per-period childcare cost that is
 where $n_t$ is the child indicator. Economically, this can be interpreted as a policy reform that reduces childcare subsidies, thereby indirectly increasing costs for households with children.
 
 \paragraph{Affected equations.}
-The only big change is in the period budget constraint, where the baseline asset accumulation equation becomes
+The childcare cost enters only through the period budget constraint. Keeping the general formulation from Question 2, in which the spouse contributes income $y_t$, the asset accumulation equation becomes
 \[
-a_{t+1} = (1+r)a_t + (1-\tau_t) w_t h_t - c_t - \theta n_t,
+a_{t+1} = (1+r)a_t + (1-\tau_t)\left(w_t h_t + y_t\right) - \theta n_t - c_t,
 \qquad \theta = 0.05.
 \]
-Thereby we see that period resources are reduced by $\theta n_t$ when $n_t>0$. All other model equations are unchanged.
+For this experiment we isolate the childcare reform by switching spouse income off ($y_t \equiv 0$), so the only difference between the two columns below is $\theta$. Period resources are reduced by $\theta n_t$ whenever a child is present, and all other model equations are unchanged.
 
 \paragraph{Simulation comparison.}
 Table \ref{tab:compare_baseline_childcare} summarizes outcomes from the baseline model ($\theta=0$) and the model with childcare costs ($\theta=0.05$).
@@ -39,7 +39,7 @@ Final wealth &  -0.9423 & -0.9367 \\
 \end{table}
 
 \paragraph{Interpretation (profiles and mechanisms).}
-Introducing childcare costs reduces disposable resources in periods with children. Consistent with this, consumption falls slightly from 2.4146 to 2.4078. Average hours worked increase slightly from 1.5864 to 1.5912, which is consistent with households slightly compensating the higher child-related expenses by working more. Fertility is unchanged in this simulation, indicating that at $\theta=0.05$ the additional cost is not large enough to change fertility choices.
+Introducing childcare costs reduces disposable resources in periods with children. Consistent with this, consumption falls from $2.4158$ to $2.4089$, while average hours worked rise from $1.5863$ to $1.5911$: households partly offset the higher child-related expense by working more. Fertility is unchanged, so at $\theta=0.05$ the additional cost is too small to alter fertility choices.
 
 \paragraph{Marshall elasticity comparison.}
 We then in the end compute the Marshall wage elasticity of labour supply in both models. The results are:
