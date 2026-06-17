@@ -16,22 +16,20 @@ This specification implies that spouse income increases slightly over the life c
 
 \paragraph{Affected equations.}
 
-The introduction of spouse income affects the household's resource constraint. In the baseline model the asset accumulation equation is
+The introduction of spouse income affects the household's resource constraint. Recall that in the baseline model $y_t \equiv 0$ for all $t$, so the asset accumulation equation is
 
 \[
-a_{t+1} = (1+r)\left(a_t + (1-\tau_t) w_t h_t - c_t\right)
+a_{t+1} = (1+r)\left(a_t + (1-\tau) w_t h_t - c_t\right)
 \]
 
 With spouse income, the budget constraint becomes
 
 \[
-a_{t+1} = (1+r)\left(a_t + (1-\tau_t)( w_t h_t +y_t)- c_t\right),
+a_{t+1} = (1+r)\left(a_t + (1-\tau)( w_t h_t +y_t)- c_t\right),
 \qquad \text{with } y_t = 0.1 + 0.01t.
 \]
 
 Thus, spouse income directly increases household resources in each period. Importantly, all other components of the model remain unchanged. The Bellman equation, labour supply decision, and fertility process are identical to those in the baseline model, and only the household's available income is higher.
-
-In the baseline model we remember $y_t \equiv 0$ for all $t$.
 
 \paragraph{Simulation results.}
 
@@ -53,7 +51,7 @@ Final wealth & -0.9113& -0.9101\\
 \label{tab:compare_baseline_spouse}
 \end{table}
 
-Figure \ref{fig:placeholder} shows the life-cycle profiles of labour supply, consumption, fertility, and assets under the two specifications.
+Figure~\ref{fig:q2_profiles} shows the life-cycle profiles of labour supply, consumption, fertility, and assets under the two specifications.
 
 \paragraph{Economic interpretation.}
 
@@ -67,5 +65,5 @@ Overall, additional non-labour income relaxes the household's budget constraint,
     \centering
     \includegraphics[width=0.5\linewidth]{Billeder/Lifecycle profiles_Q2_Ass1.png}
     \caption{Life-cycle profiles of labour supply, consumption, fertility, and assets in the baseline model and in the model with spouse income.}
-    \label{fig:placeholder}
+    \label{fig:q2_profiles}
 \end{figure}
