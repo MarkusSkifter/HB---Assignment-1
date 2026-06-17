@@ -84,7 +84,25 @@ Thus, stochastic spouse presence reduces the number of periods in which childbir
 
 \paragraph{Simulation results and economic interpretation.}
 
-Figure \ref{fig:stoch_spouse_profiles} compares life-cycle profiles in the stochastic spouse model ($p_s=0.8$, $y_t=0.1+0.01t$) against the pure baseline ($p_s=1$, $y_t=0$). Two forces shape the comparison. When the spouse is present, the extra income relaxes the budget constraint, which through an income effect raises consumption and pulls down own hours. Because that income is now uncertain, households also face income risk and save somewhat more for precaution, which works in the opposite direction on hours. The net change in labour supply is therefore the balance of these two channels and is read off the figure; consumption is unambiguously higher whenever spouse income is realised. Fertility falls relative to the baseline, since births are only possible in the fraction of periods in which a spouse is present.
+Table \ref{tab:compare_baseline_spouse5} reports summary statistics from the pure baseline ($p_s=1$, $y_t=0$) and the stochastic, income-generating spouse model ($p_s=0.8$, $y_t=0.1+0.01t$). The realised share of periods with a spouse present in the alternative model is $0.824$, close to the target $p_s=0.8$.
+
+\begin{table}[H]
+\centering
+\begin{tabular}{lcc}
+\hline
+Metric & Baseline ($p_s=1$) & Stochastic spouse ($p_s=0.8$) \\
+\hline
+Average hours worked & 1.5864 & 1.5639 \\
+Average consumption  & 2.4146 & 2.4719 \\
+Children at end      & 0.6080 & 0.5270 \\
+Final wealth         & -0.9113 & -0.9368 \\
+\hline
+\end{tabular}
+\caption{Baseline vs.\ stochastic, income-generating spouse ($p_s=0.8$). Share of periods with a spouse present in the alternative model: $0.824$.}
+\label{tab:compare_baseline_spouse5}
+\end{table}
+
+Figure \ref{fig:stoch_spouse_profiles} compares the life-cycle profiles. Two forces shape the comparison. When the spouse is present, the extra income relaxes the budget constraint, which through an income effect raises consumption and pulls down own hours. Because that income is now uncertain, households also face income risk and save somewhat more for precaution, which works in the opposite direction on hours. In the simulation the income effect modestly dominates: average hours fall from $1.5864$ to $1.5639$, while consumption rises from $2.4146$ to $2.4719$. Fertility is lower --- children at the end of life fall from $0.6080$ to $0.5270$ --- because births are only possible in the fraction of periods in which a spouse is present, and final wealth is marginally lower ($-0.9113$ to $-0.9368$).
 \begin{figure}[H]
 \centering
 \includegraphics[width=0.5\textwidth]{Billeder/Opgave 5.png}
