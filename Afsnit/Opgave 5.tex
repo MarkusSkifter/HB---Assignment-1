@@ -19,9 +19,11 @@ s_t =
 Spouse presence therefore follows a stochastic process:
 
 \[
-\Pr(s_{t+1}=1)=p_s=0.8, 
-\qquad 
-\Pr(s_{t+1}=0)=1-p_s=0.2.
+s_{t+1} =
+\begin{cases}
+1 & \text{with probability } p_s = 0.8, \\
+0 & \text{with probability } 1-p_s = 0.2.
+\end{cases}
 \]
 
 We therefore have to extend the household's state vector relative to the baseline model. The new state space becomes
