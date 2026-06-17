@@ -1,0 +1,60 @@
+\section{Model Summary}
+
+\subsection{Key equations}
+
+Table \ref{tab:model_formulation} summarises the main structural equations of the model across all specifications.
+
+\begin{table}[H]
+\centering
+\renewcommand{\arraystretch}{1.6}
+\begin{tabularx}{\textwidth}{lX}
+\hline
+\textbf{Component} & \textbf{Equation} \\
+\hline
+Period utility & $\displaystyle U_t = \frac{c_t^{1+\eta}}{1+\eta} - \beta(n_t)\frac{h_t^{1+\gamma}}{1+\gamma}$ \\
+Labour disutility & $\beta(n_t) = \beta_0 + \beta_1\, n_t$ \\
+Wage function & $w_t(k_t) = (1-\tau)\,w\,(1 + \alpha\, k_t)$ \\
+Human capital & $k_{t+1} = k_t + h_t$ \\
+Fertility & $n_{t+1} = n_t + 1$ with prob.\ $p_{\text{birth}}$; otherwise $n_{t+1} = n_t$ \\
+\hline
+Budget constraint (baseline) & $a_{t+1} = (1+r)\bigl(a_t + (1-\tau)w_t h_t - c_t\bigr)$ \\
+\quad + Spouse income (Q2) & $a_{t+1} = (1+r)\bigl(a_t + (1-\tau)(w_t h_t + y_t) - c_t\bigr)$,\quad $y_t = y_0 + y_1 t$ \\
+\quad + Childcare cost (Q3) & $a_{t+1} = (1+r)\bigl(a_t + (1-\tau)(w_t h_t + y_t) - \theta n_t - c_t\bigr)$ \\
+\quad + Stochastic spouse (Q5) & $a_{t+1} = (1+r)\bigl(a_t + (1-\tau)(w_t h_t + s_t y_t) - c_t\bigr)$,\quad $s_t \in \{0,1\}$ \\
+\hline
+\end{tabularx}
+\caption{Key model equations across all specifications.}
+\label{tab:model_formulation}
+\end{table}
+
+\subsection{Parameter values}
+
+Table \ref{tab:parameters} lists all parameter values used across the five questions.
+
+\begin{table}[H]
+\centering
+\renewcommand{\arraystretch}{1.3}
+\begin{tabular}{llcc}
+\hline
+\textbf{Symbol} & \textbf{Description} & \textbf{Value} & \textbf{Introduced} \\
+\hline
+$\rho$               & Discount factor                          & 0.98    & Baseline \\
+$\eta$               & CRRA curvature (consumption)             & $-2.0$  & Baseline \\
+$\gamma$             & Labour hours curvature                   & 2.5     & Baseline \\
+$\beta_0$            & Baseline labour disutility               & 0.1     & Baseline \\
+$\beta_1$            & Child labour disutility (calibrated)     & 0.0537  & Q1 \\
+$\alpha$             & Human capital accumulation rate          & 0.1     & Baseline \\
+$w$                  & Base wage                                & 1.0     & Baseline \\
+$\tau$               & Labour income tax rate                   & 0.1     & Baseline \\
+$r$                  & Interest rate                            & 0.02    & Baseline \\
+$p_{\text{birth}}$   & Birth probability                        & 0.1     & Baseline \\
+$T$                  & Number of periods                        & 10      & Baseline \\
+$y_0$                & Spouse income intercept                  & 0.1     & Q2 \\
+$y_1$                & Spouse income slope                      & 0.01    & Q2 \\
+$\theta$             & Childcare cost per child                 & 0.05    & Q3 \\
+$p_s$                & Spouse presence probability              & 0.8     & Q5 \\
+\hline
+\end{tabular}
+\caption{Parameter values used across all model specifications.}
+\label{tab:parameters}
+\end{table}
