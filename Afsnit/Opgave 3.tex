@@ -14,10 +14,10 @@ where $n_t$ is the child indicator. Economically, this can be interpreted as a p
 \paragraph{Affected equations.}
 The only big change is in the period budget constraint, where the baseline asset accumulation equation becomes
 \[
-a_{t+1} = (1+r)a_t + (1-\tau_t) w_t h_t - c_t - \theta n_t,
+a_{t+1} = (1+r)(a_t + (1-\tau_t)(w_t h_t + s_t y_t) - \theta n_t - c_t),
 \qquad \theta = 0.05.
 \]
-Thereby we see that period resources are reduced by $\theta n_t$ when $n_t>0$. All other model equations are unchanged.
+Thereby we see that period resources are reduced by $\theta n_t$ when $n_t>0$. In the simulation we set $y_t = 0$, isolating the effect of childcare costs. All other model equations are unchanged.
 
 \paragraph{Simulation comparison.}
 Table \ref{tab:compare_baseline_childcare} summarizes outcomes from the baseline model ($\theta=0$) and the model with childcare costs ($\theta=0.05$).
